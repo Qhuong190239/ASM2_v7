@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+
+    <style>
+        .header {
+            padding: 50px;
+            text-align: center;
+            text-shadow: 0px 0px 0 rgb(137, 156, 213), 1px 1px 0 rgb(129, 148, 205), 2px 2px 0 rgb(120, 139, 196), 3px 3px 0 rgb(111, 130, 187), 4px 4px 0 rgb(103, 122, 179), 5px 5px 0 rgb(94, 113, 170), 6px 6px 0 rgb(85, 104, 161);
+            background-image: url(https://blog-imgs-135.fc2.com/w/a/t/watchmonoblog/Show_Your_PC_Desk_Part198_94.jpg);
+            background-size: 1200px;
+            background-position-y: 40%;
+            color: rgb(255, 255, 255)
+        }
+
+
+        .header h1 {
+            font-size: 70px;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: rgb(0, 0, 0);
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            padding: 10px 20px;
+
+        }
+
+        .navbar a.right {
+            float: right;
+        }
+
+        .navbar a.active {
+            background-color: #666;
+            color: white;
+        }
+
+        .row {
+            padding: 5px -5px;
+            background-color: #f1f1f1;
+            display: flex;
+
+        }
+
+        .main {
+            flex: 70%;
+            background-color: white;
+            padding: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="header">
+        <h1>Welcome to ATN</h1>
+    </div>
+
+    <div class="navbar">
+        <a href="/" class="active">Product Management</a>
+        <a class="right">
+            <form action="/search" method="post">
+                <input type="text" name="txtSearch">
+                <input type="submit" value="Search">
+            </form>
+        </a>
+    </div>
+
+
+    <div class="row">
+
+        <form action="/insert" method="post">
+            <h2>
+                Name
+                <br>
+                <input type="text" name="txtName">
+            </h2>
+            <h2>
+                Price
+                <br>
+                <input type="text" name="txtTuoi">
+            </h2>
+            <h2>
+                Picture
+                <br>
+                <input type="text" name="txtPicture">
+            </h2>
+            <input type="submit" value="Insert Product">
+        </form>
+        <div class="main">
+            <table>
+                {{#each data}}
+                <h3>
+                    {{name}} - {{tuoi}}
+                    <a href="/delete?id={{_id}}">Delete</a>
+                    <a href="/edit?id={{_id}}">Edit</a>
+                </h3>
+                <img src="{{picture}}" width="300" height="200" />
+                {{/each}}
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
