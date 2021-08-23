@@ -4,7 +4,7 @@ const url = 'mongodb://localhost:27017';
 
 async function getDB() {
     const client = await MongoClient.connect(url);
-    const dbo = client.db("ASM");
+    const dbo = client.db("ASM2v15");
     return dbo;
 }
 
