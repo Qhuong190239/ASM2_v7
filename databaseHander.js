@@ -13,9 +13,9 @@ async function insertStudent(newStudent) {
     await dbo.collection("students").insertOne(newStudent);
 }
 
-async function updateStudent(id, nameInput, tuoiInput) {
+async function updateStudent(id, nameInput, tuoiInput, pictureInput) {
     const filter = { _id: ObjectId(id) };
-    const newValue = { $set: { name: nameInput, tuoi: tuoiInput } };
+    const newValue = { $set: { name: nameInput, tuoi: tuoiInput, picture: pictureInput } };
 
     const dbo = await getDB();
     await dbo.collection("students").updateOne(filter, newValue);

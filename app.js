@@ -16,9 +16,10 @@ app.get('/edit',async(req, res) => {
 app.post('/update', async (req, res) => {
     const nameInput    = req.body.txtName;
     const tuoiInput    = req.body.txtTuoi;
+    const pictureInput = req.body.txtPicture;
     const id = req.body.txtId;
 
-    updateStudent(id, nameInput, tuoiInput);
+    updateStudent(id, nameInput, tuoiInput, pictureInput);
     res.redirect("/")
 })
 
